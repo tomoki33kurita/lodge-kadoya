@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -18,20 +19,24 @@ const Home = () => {
 
         <div className={styles.grid}>
           {/* NEXT LINK に切り替える */}
-          <a href="/cooking" className={styles.card}>
-            <h2>お料理 &rarr;</h2>
-            <p>自家製野菜を使用しております。</p>
-          </a>
-          {/* NEXT LINK に切り替える */}
-          <a href="/reserve" className={styles.card}>
-            <h2>ご予約 &rarr;</h2>
-            <p>空き状況もご確認いただけます。</p>
-          </a>
-          {/* NEXT LINK に切り替える */}
-          <a href="/contact" className={styles.card}>
-            <h2>お問い合わせ &rarr;</h2>
-            <p>お気軽にお問い合わせください</p>
-          </a>
+          <Link href={"/cooking"}>
+            <a className={styles.card}>
+              <h2>お料理 &rarr;</h2>
+              <p>自家製野菜を使用しております。</p>
+            </a>
+          </Link>
+          <Link href={"/reserve"}>
+            <a className={styles.card}>
+              <h2>ご予約 &rarr;</h2>
+              <p>空き状況もご確認いただけます。</p>
+            </a>
+          </Link>
+          <Link href={"/contact"}>
+            <a className={styles.card}>
+              <h2>お問い合わせ &rarr;</h2>
+              <p>お気軽にお問い合わせください</p>
+            </a>
+          </Link>
 
           {/* <a
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
