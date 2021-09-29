@@ -51,28 +51,28 @@ export const Header: React.VFC<Props> = (props) => {
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
       >
-        <Link href={""} passHref>
+        <Link href={"/guidance"} passHref>
           <A>ご案内</A>
         </Link>
-        <Link href={""} passHref>
+        <Link href={"/availabillity"} passHref>
           <A>空室情報</A>
         </Link>
-        <Link href={""} passHref>
+        <Link href={"/price"} passHref>
           <A>料金表</A>
         </Link>
         <Link href={"/cooking"} passHref>
           <A>お料理</A>
         </Link>
-        <Link href={""} passHref>
+        <Link href={"/facility"} passHref>
           <A>館内施設</A>
         </Link>
-        <Link href={""} passHref>
+        <Link href={"/neighborhood"} passHref>
           <A>周辺情報</A>
         </Link>
         <Link href={"/contact"} passHref>
           <A>お問い合わせ</A>
         </Link>
-        <Link href={""} passHref>
+        <Link href={"/access"} passHref>
           <A>アクセス</A>
         </Link>
       </Stack>
