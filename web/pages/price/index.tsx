@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 
-const PriceSheet = () => {
+const PriceSheet: React.FC = () => {
   return (
     <div>
       <Head>
