@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from "next/image";
+import { Center, Box } from "@chakra-ui/react";
 
 const Access = () => {
   return (
@@ -10,12 +10,34 @@ const Access = () => {
       </Head>
 
       <main>
-        <h1>アクセスを示す部分</h1>
+        <Center py={4}>
+          <Box as={"h1"} fontSize={"28px"}>
+            アクセス
+          </Box>
+        </Center>
+        <Center py={4}>
+          <Box>
+            <Box>〒399-9422</Box>
+            <Box>長野県北安曇郡小谷村大字千国乙12840-1</Box>
+            <Box>栂池ロッヂかどや</Box>
+            <Box>mail: kadoya.volley@gmail.com</Box>
+            <Box>tel: 0261-83-2239</Box>
+          </Box>
+        </Center>
+        <Center>
+          <Box>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12787.311069303018!2d137.870976!3d36.750705!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x842d518c3f3edf3e!2z44Ot44OD44OC44GL44Gp44KE!5e0!3m2!1sja!2sjp!4v1671350820207!5m2!1sja!2sjp"
+              width="600"
+              height="450"
+              // style="border:0;"
+              // allowFullScreen=""
+              loading="lazy"
+              // referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </Box>
+        </Center>
       </main>
-
-      <footer>
-        <p>フッターだよ</p>
-      </footer>
     </div>
   );
 };
