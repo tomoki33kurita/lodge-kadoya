@@ -1,8 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <div>
       <Head>

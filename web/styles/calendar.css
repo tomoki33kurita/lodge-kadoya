@@ -1,0 +1,22 @@
+.react-calendar__tile--active {
+  background: white !important;
+  color: #292929 !important;
+}
+.react-calendar__full {
+  background: pink !important;
+}
+
+.react-calendar__few {
+  background: skyblue !important;
+}
+
+.react-calendar__saturday {
+  color: blue !important;
+}
+.react-calendar__sunday {
+  color: red !important;
+}
+
+.react-calendar__national__holiday {
+  color: red !important;
+}
