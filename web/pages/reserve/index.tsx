@@ -15,15 +15,42 @@ import "react-calendar/dist/Calendar.css";
 import dayjs from "dayjs";
 import React, { useState } from "react";
 import { LinkButton } from "../../components/LinkButton";
+import Axios from "axios";
+
 const SUNDAY = 0;
 const SATURDAY = 6;
 const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day";
 
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState(dayjs().format("YYYY/MM/DD"));
-  const { handleSubmit, register } = useForm();
-  const handleForm = (values: any) => {
-    console.log(values);
+  const { handleSubmit, register, watch } = useForm();
+  const axios = Axios.create({ baseURL: "http://localhost:3001/" });
+  const inputOfEmail = watch("email");
+  console.log("aaaaa", watch("email"));
+  const handleForm = async (values: any) => {
+    const {
+      name,
+      kana,
+      address,
+      tel,
+      email,
+      checkInDate,
+      numberOfDays,
+      remarks,
+    } = values;
+    const res = await axios.post("/api/sendMail", {
+      name,
+      kana,
+      address,
+      tel,
+      email,
+      checkInDate,
+      numberOfDays,
+      remarks,
+    });
+
+    console.log({ values });
+    console.log({ res });
   };
   return (
     <div>
@@ -181,8 +208,12 @@ const Reserve: React.FC = () => {
                 早朝チェックインも承りますので、お気軽にお問合せください。
               </Box>
               <Center my={4}>
-                <Button type={"submit"} bgColor={"orange.200"}>
-                  予約申し込みをする
+                <Button
+                  disabled={!inputOfEmail}
+                  type={"submit"}
+                  bgColor={"orange.200"}
+                >
+                  予約を申し込む
                 </Button>
               </Center>
             </FormControl>

@@ -74,9 +74,7 @@ const PriceSheet: React.FC = () => {
                   <Td isNumeric>9,300</Td>
                   <Td isNumeric>8,800</Td>
                   <Td isNumeric>8,300</Td>
-                  <Td inNumeric style={{ textAlign: "right" }}>
-                    8,300
-                  </Td>
+                  <Td isNumeric>8,300</Td>
                 </Tr>
                 <Tr>
                   <Td>小学生</Td>
@@ -84,9 +82,7 @@ const PriceSheet: React.FC = () => {
                   <Td isNumeric>8,300</Td>
                   <Td isNumeric>7,800</Td>
                   <Td isNumeric>7,300</Td>
-                  <Td inNumeric style={{ textAlign: "right" }}>
-                    7,300
-                  </Td>
+                  <Td isNumeric>7,300</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
@@ -94,9 +90,7 @@ const PriceSheet: React.FC = () => {
                   <Td isNumeric>4,600</Td>
                   <Td isNumeric>4,400</Td>
                   <Td isNumeric>4,000</Td>
-                  <Td inNumeric style={{ textAlign: "right" }}>
-                    4,000
-                  </Td>
+                  <Td isNumeric>4,000</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
@@ -104,9 +98,7 @@ const PriceSheet: React.FC = () => {
                   <Td isNumeric>1,800</Td>
                   <Td isNumeric>1,700</Td>
                   <Td isNumeric>1,700</Td>
-                  <Td inNumeric style={{ textAlign: "right" }}>
-                    1,700
-                  </Td>
+                  <Td isNumeric>1,700</Td>
                 </Tr>
               </Tbody>
             </Table>
