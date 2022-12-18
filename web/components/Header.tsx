@@ -8,6 +8,8 @@ import {
   Button,
   useDisclosure,
   Link as A,
+  Show,
+  Hide,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Link from "next/link";
@@ -42,40 +44,90 @@ export const Header: React.VFC<Props> = (props) => {
       <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
         <HamburgerIcon />
       </Box>
-
-      <Stack
-        direction={{ base: "column", md: "row" }}
-        display={{ base: isOpen ? "block" : "none", md: "flex" }}
-        width={{ base: "full", md: "auto" }}
-        alignItems="center"
-        flexGrow={1}
-        mt={{ base: 4, md: 0 }}
-      >
-        <Link href={"/guidance"} passHref>
-          <A>ご案内</A>
-        </Link>
-        <Link href={"/availabillity"} passHref>
-          <A>空室情報</A>
-        </Link>
-        <Link href={"/price"} passHref>
-          <A>料金表</A>
-        </Link>
-        <Link href={"/cooking"} passHref>
-          <A>お料理</A>
-        </Link>
-        <Link href={"/facility"} passHref>
-          <A>館内施設</A>
-        </Link>
-        <Link href={"/neighborhood"} passHref>
-          <A>周辺情報</A>
-        </Link>
-        {/* <Link href={"/contact"} passHref>
-          <A>お問い合わせ</A>
+      <Hide below={"md"}>
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          display={{ base: isOpen ? "block" : "none", md: "flex" }}
+          width={{ base: "full", md: "auto" }}
+          alignItems="center"
+          flexGrow={1}
+          mt={{ base: 4, md: 0 }}
+        >
+          <Link href={"/guidance"} passHref>
+            <A fontWeight={"bold"}>ご案内</A>
+          </Link>
+          <Link href={"/availabillity"} passHref>
+            <A fontWeight={"bold"}>空室情報</A>
+          </Link>
+          <Link href={"/price"} passHref>
+            <A fontWeight={"bold"}>料金表</A>
+          </Link>
+          <Link href={"/cooking"} passHref>
+            <A fontWeight={"bold"}>お料理</A>
+          </Link>
+          <Link href={"/facility"} passHref>
+            <A fontWeight={"bold"}>館内施設</A>
+          </Link>
+          <Link href={"/neighborhood"} passHref>
+            <A fontWeight={"bold"}>周辺情報</A>
+          </Link>
+          {/* <Link href={"/contact"} passHref>
+          <A fontWeight={'bold'}>お問い合わせ</A>
         </Link> */}
-        <Link href={"/access"} passHref>
-          <A>アクセス</A>
-        </Link>
-      </Stack>
+          <Link href={"/access"} passHref>
+            <A fontWeight={"bold"}>アクセス</A>
+          </Link>
+        </Stack>
+      </Hide>
+      <Show below={"md"}>
+        <Stack
+          direction={{ base: "column", md: "row" }}
+          display={{ base: isOpen ? "block" : "none", md: "flex" }}
+          width={{ base: "full", md: "auto" }}
+          alignItems="center"
+          flexGrow={1}
+          mt={{ base: 4, md: 0 }}
+        >
+          <Box>
+            <Link href={"/guidance"} passHref>
+              <A fontWeight={"bold"}>ご案内</A>
+            </Link>
+          </Box>
+          <Box>
+            <Link href={"/availabillity"} passHref>
+              <A fontWeight={"bold"}>空室情報</A>
+            </Link>
+          </Box>
+          <Box>
+            <Link href={"/price"} passHref>
+              <A fontWeight={"bold"}>料金表</A>
+            </Link>
+          </Box>
+          <Box>
+            <Link href={"/cooking"} passHref>
+              <A fontWeight={"bold"}>お料理</A>
+            </Link>
+          </Box>
+          <Box>
+            <Link href={"/facility"} passHref>
+              <A fontWeight={"bold"}>館内施設</A>
+            </Link>
+          </Box>
+          <Box>
+            <Link href={"/neighborhood"} passHref>
+              <A fontWeight={"bold"}>周辺情報</A>
+            </Link>
+            {/* <Link href={"/contact"} passHref>
+          <A fontWeight={'bold'}>お問い合わせ</A>
+        </Link> */}
+          </Box>
+          <Box>
+            <Link href={"/access"} passHref>
+              <A fontWeight={"bold"}>アクセス</A>
+            </Link>
+          </Box>
+        </Stack>
+      </Show>
 
       <Box
         display={{ base: isOpen ? "block" : "none", md: "block" }}
