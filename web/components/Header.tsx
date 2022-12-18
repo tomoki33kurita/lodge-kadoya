@@ -69,9 +69,9 @@ export const Header: React.VFC<Props> = (props) => {
         <Link href={"/neighborhood"} passHref>
           <A>周辺情報</A>
         </Link>
-        <Link href={"/contact"} passHref>
+        {/* <Link href={"/contact"} passHref>
           <A>お問い合わせ</A>
-        </Link>
+        </Link> */}
         <Link href={"/access"} passHref>
           <A>アクセス</A>
         </Link>

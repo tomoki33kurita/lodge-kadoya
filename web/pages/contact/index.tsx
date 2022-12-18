@@ -10,15 +10,8 @@ const Reserve = () => {
       </Head>
 
       <main>
-        <h1>お問い合わせを表示する部分</h1>
-
-        <p>ゲレンデの中にある民宿</p>
-        <div>あああ</div>
+        <h1>只今、準備中です。</h1>
       </main>
-
-      <footer>
-        <p>フッターだよ</p>
-      </footer>
     </div>
   );
 };
