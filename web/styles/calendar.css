@@ -20,3 +20,7 @@
 .react-calendar__national__holiday {
   color: red !important;
 }
+
+.react-calendar__check_in_day {
+  background: #81e6d9 !important;
+}
