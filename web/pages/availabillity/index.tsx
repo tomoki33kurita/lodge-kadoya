@@ -1,4 +1,5 @@
-import { Box, Center, SimpleGrid } from "@chakra-ui/react";
+import { Box, Button, Center, SimpleGrid, Link as A } from "@chakra-ui/react";
+import Link from "next/link";
 import Head from "next/head";
 import { Calendar } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
@@ -151,6 +152,19 @@ const Availabillity = () => {
               />
             </Box>
           </SimpleGrid>
+        </Center>
+        <Center mb={6}>
+          <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
+            <Link href={"/price"} passHref>
+              <A>料金表</A>
+            </Link>
+          </Button>
+          <Box px={4}>or</Box>
+          <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
+            <Link href={"/reserve"} passHref>
+              <A>ご予約へ</A>
+            </Link>
+          </Button>
         </Center>
       </main>
     </div>

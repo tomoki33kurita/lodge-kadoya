@@ -7,7 +7,9 @@ import {
   Td,
   TableContainer,
   Button,
+  Link as A,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import Head from "next/head";
 
 const PriceSheet: React.FC = () => {
@@ -126,11 +128,15 @@ const PriceSheet: React.FC = () => {
         </Center>
         <Center mb={6}>
           <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
-            空室情報
+            <Link href={"/availabillity"} passHref>
+              <A>空室情報</A>
+            </Link>
           </Button>
           <Box px={4}>or</Box>
           <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
-            ご予約へ
+            <Link href={"/reserve"} passHref>
+              <A>ご予約へ</A>
+            </Link>
           </Button>
         </Center>
       </main>
