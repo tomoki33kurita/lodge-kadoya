@@ -75,6 +75,9 @@ const Reserve = () => {
               /> */}
               <FormLabel>備考欄</FormLabel>
               <Textarea id={"remarks"} {...register("remarks")} rows={5} />
+              <Box>
+                早朝チェックインも承りますので、お気軽にお問合せください。
+              </Box>
               <Center my={4}>
                 <Button type={"submit"} bgColor={"orange.200"}>
                   予約申し込みをする
