@@ -28,8 +28,7 @@ export default async (req: NextApiRequest, res: any) => {
     //  以下、かどやに送付するメール
     const toKadoya = await transporter.sendMail({
       from: process.env.SMTP_AUTH_USER,
-      to: data.email,
-      // bcc: "kadoya.volley@gmail.com",
+      to: "kadoya.volley@gmail.com",
       subject: `【新規】予約申込みがありました。`,
       html: toKadoyaTextGenerator(data),
     });
