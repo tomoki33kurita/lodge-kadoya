@@ -50,6 +50,10 @@ const toCustomerTextGenerator = (data: any) => {
     email,
     checkInDate,
     numberOfDays,
+    adult,
+    child,
+    infantWithMeals,
+    infant,
     remarks,
   } = data;
   return `
@@ -70,10 +74,10 @@ const toCustomerTextGenerator = (data: any) => {
         <div>メールアドレス：${email}</div>
         <div>チェックインご希望日：${checkInDate}</div>
         <div>宿泊日数：${numberOfDays}泊${Number(numberOfDays) + 1}日</div>
-        <div>大人：</div>
-        <div>子供：</div>
-        <div>幼児(食事有)：</div>
-        <div>幼児(食事無)：</div>
+        <div>大人：${adult}</div>
+        <div>子供：${child}</div>
+        <div>幼児(食事有)：${infantWithMeals}</div>
+        <div>幼児(食事無)：${infant}</div>
         <div>備考欄：</div>
         <div>${remarks}</div>
       </div>
@@ -90,14 +94,16 @@ const toKadoyaTextGenerator = (data: any) => {
     email,
     checkInDate,
     numberOfDays,
+    adult,
+    child,
+    infantWithMeals,
+    infant,
     remarks,
   } = data;
   return `
   <html>
     <head></head>
     <body>
-      <div>テストメール</div>
-      <div>
       <div>お申し込み内容</div>
       <div>お名前：${name}</div>
       <div>ふりがな：${kana}</div>
@@ -106,14 +112,13 @@ const toKadoyaTextGenerator = (data: any) => {
       <div>メールアドレス：${email}</div>
       <div>チェックインご希望日：${checkInDate}</div>
       <div>宿泊日数：${numberOfDays}泊${Number(numberOfDays) + 1}日</div>
-      <div>大人：</div>
-      <div>子供：</div>
-      <div>幼児(食事有)：</div>
-      <div>幼児(食事無)：</div>
+      <div>大人：${adult}人</div>
+      <div>子供：${child}人</div>
+      <div>幼児(食事有)：${infantWithMeals}人</div>
+      <div>幼児(食事無)：${infant}人</div>
       <div>備考欄：</div>
-      <div>${remarks}</div>
-    </div>
-
+        <div>${remarks}</div>
+      </div>
     </body>
   </html>`;
 };

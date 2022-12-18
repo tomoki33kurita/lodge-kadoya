@@ -24,7 +24,9 @@ const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day";
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState(dayjs().format("YYYY/MM/DD"));
   const { handleSubmit, register, watch } = useForm();
-  const axios = Axios.create({ baseURL: "http://localhost:3001/" });
+  const axios = Axios.create({
+    baseURL: process.env.NEXT_PUBLIC_AXIOS_BASE_URL,
+  });
   const inputOfEmail = watch("email");
   console.log("aaaaa", watch("email"));
   const handleForm = async (values: any) => {
@@ -36,6 +38,10 @@ const Reserve: React.FC = () => {
       email,
       checkInDate,
       numberOfDays,
+      adult,
+      child,
+      infantWithMeals,
+      infant,
       remarks,
     } = values;
     const res = await axios.post("/api/sendMail", {
@@ -46,11 +52,14 @@ const Reserve: React.FC = () => {
       email,
       checkInDate,
       numberOfDays,
+      adult,
+      child,
+      infantWithMeals,
+      infant,
       remarks,
     });
-
-    console.log({ values });
     console.log({ res });
+    console.log({ values });
   };
   return (
     <div>
@@ -200,6 +209,54 @@ const Reserve: React.FC = () => {
                   <option value={5}>5泊</option>
                 </Select>
               </Box>
+              <Box mb={5}>
+                <Box fontSize={"18px"}>宿泊人数</Box>
+                <FormLabel mb={1}>大人(中学生以上)</FormLabel>
+                <Select id={"adult"} {...register("adult")} defaultValue={1}>
+                  <option value={1}>1人</option>
+                  <option value={2}>2人</option>
+                  <option value={3}>3人</option>
+                  <option value={4}>4人</option>
+                  <option value={5}>5人</option>
+                  <option value={6}>6人</option>
+                  <option value={7}>7人</option>
+                  <option value={8}>8人</option>
+                  <option value={9}>9人</option>
+                  <option value={10}>10人</option>
+                </Select>
+                <FormLabel mb={1}>小学生</FormLabel>
+                <Select id={"child"} {...register("child")} defaultValue={0}>
+                  <option value={0}>0人</option>
+                  <option value={1}>1人</option>
+                  <option value={2}>2人</option>
+                  <option value={3}>3人</option>
+                  <option value={4}>4人</option>
+                  <option value={5}>5人</option>
+                </Select>
+                <FormLabel mb={1}>幼児(食事有)</FormLabel>
+                <Select
+                  id={"infantWithMeals"}
+                  {...register("infantWithMeals")}
+                  defaultValue={0}
+                >
+                  <option value={0}>0人</option>
+                  <option value={1}>1人</option>
+                  <option value={2}>2人</option>
+                  <option value={3}>3人</option>
+                  <option value={4}>4人</option>
+                  <option value={5}>5人</option>
+                </Select>
+                <FormLabel mb={1}>幼児(食事無)</FormLabel>
+                <Select id={"infant"} {...register("infant")} defaultValue={0}>
+                  <option value={0}>0人</option>
+                  <option value={1}>1人</option>
+                  <option value={2}>2人</option>
+                  <option value={3}>3人</option>
+                  <option value={4}>4人</option>
+                  <option value={5}>5人</option>
+                </Select>
+              </Box>
+
               <Box mb={5}>
                 <FormLabel mb={1}>備考欄</FormLabel>
                 <Textarea id={"remarks"} {...register("remarks")} rows={5} />
