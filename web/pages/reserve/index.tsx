@@ -6,16 +6,15 @@ import {
   FormControl,
   Input,
   Button,
-  Link as A,
   Textarea,
   Select,
 } from "@chakra-ui/react";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { Calendar } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import dayjs from "dayjs";
 import React, { useState } from "react";
+import { LinkButton } from "../../components/LinkButton";
 const SUNDAY = 0;
 const SATURDAY = 6;
 const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day";
@@ -92,32 +91,71 @@ const Reserve: React.FC = () => {
               <Box mb={5}>
                 <FormLabel mb={1}>チェックインご希望日</FormLabel>
                 <Box>カレンダーから選択してください</Box>
-                <Calendar
-                  calendarType={"US"}
-                  formatDay={(_, date) => dayjs(date).format("D")}
-                  tileClassName={(a) => {
-                    const tileOfDate = dayjs(a.date).format("YYYY/MM/DD");
-                    const tileOfDay = dayjs(a.date).day();
-                    switch (tileOfDay) {
-                      case SATURDAY:
-                        return checkInDate === tileOfDate
-                          ? CHECKIN_DATE_CLASS_NAME
-                          : "react-calendar__saturday";
-                      case SUNDAY:
-                        return checkInDate === tileOfDate
-                          ? CHECKIN_DATE_CLASS_NAME
-                          : "react-calendar__sunday";
-                    }
-                    switch (tileOfDate) {
-                      case checkInDate:
-                        return CHECKIN_DATE_CLASS_NAME;
-                    }
-                    return "";
-                  }}
-                  onChange={(e: Date) => {
-                    setCheckInDate(dayjs(e).format("YYYY/MM/DD"));
-                  }}
-                />
+                <Box color="red">空室状況をご確認の上お申し込みください。</Box>
+                <Center mt={3}>
+                  <Center mr={2}>
+                    <Box
+                      style={{
+                        background: "pink",
+                        width: "30px",
+                        height: "30px",
+                        display: "inline-block",
+                      }}
+                    />
+                    <Box>満室</Box>
+                  </Center>
+                  <Center>
+                    <Box
+                      style={{
+                        background: "skyblue",
+                        width: "30px",
+                        height: "30px",
+                        display: "inline-block",
+                      }}
+                    />
+                    <Box>残りわずか</Box>
+                  </Center>
+                </Center>
+                <Center>
+                  <Calendar
+                    calendarType={"US"}
+                    formatDay={(_, date) => dayjs(date).format("D")}
+                    tileClassName={(a) => {
+                      const tileOfDate = dayjs(a.date).format("YYYY/MM/DD");
+                      const tileOfDay = dayjs(a.date).day();
+                      switch (tileOfDate) {
+                        case checkInDate:
+                          return CHECKIN_DATE_CLASS_NAME;
+                        case "2023/01/09":
+                        case "2023/02/11":
+                        case "2023/02/23":
+                        case "2023/03/21":
+                          return "react-calendar__national__holiday";
+                        case "2023/01/01":
+                        case "2023/01/07":
+                        case "2023/01/08":
+                          return "react-calendar__full";
+                        case "2022/12/29":
+                        case "2022/12/30":
+                          return "react-calendar__few";
+                      }
+                      switch (tileOfDay) {
+                        case SATURDAY:
+                          return checkInDate === tileOfDate
+                            ? CHECKIN_DATE_CLASS_NAME
+                            : "react-calendar__saturday";
+                        case SUNDAY:
+                          return checkInDate === tileOfDate
+                            ? CHECKIN_DATE_CLASS_NAME
+                            : "react-calendar__sunday";
+                      }
+                      return "";
+                    }}
+                    onChange={(e: Date) => {
+                      setCheckInDate(dayjs(e).format("YYYY/MM/DD"));
+                    }}
+                  />
+                </Center>
                 <Input
                   value={checkInDate}
                   id={"checkInDate"}
@@ -151,17 +189,7 @@ const Reserve: React.FC = () => {
           </form>
         </Center>
         <Center mb={6}>
-          <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
-            <Link href={"/availabillity"} passHref>
-              <A>空室情報</A>
-            </Link>
-          </Button>
-          <Box px={4}>or</Box>
-          <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
-            <Link href={"/price"} passHref>
-              <A>料金表</A>
-            </Link>
-          </Button>
+          <LinkButton href={"/price"} label={"料金表"} />
         </Center>
       </main>
     </div>

@@ -9,8 +9,8 @@ import {
   Button,
   Link as A,
 } from "@chakra-ui/react";
-import Link from "next/link";
 import Head from "next/head";
+import { LinkButton } from "../../components/LinkButton";
 
 const PriceSheet: React.FC = () => {
   return (
@@ -127,17 +127,7 @@ const PriceSheet: React.FC = () => {
           </Box>
         </Center>
         <Center mb={6}>
-          <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
-            <Link href={"/availabillity"} passHref>
-              <A>空室情報</A>
-            </Link>
-          </Button>
-          <Box px={4}>or</Box>
-          <Button color={"white"} bgColor={"teal.500"} size={"lg"}>
-            <Link href={"/reserve"} passHref>
-              <A>ご予約へ</A>
-            </Link>
-          </Button>
+          <LinkButton href={"/reserve"} label={"ご予約へ"} />
         </Center>
       </main>
     </div>

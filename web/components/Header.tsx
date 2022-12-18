@@ -55,9 +55,6 @@ export const Header: React.VFC<Props> = (props) => {
           <Link href={"/guidance"} passHref>
             <A fontWeight={"bold"}>ご案内</A>
           </Link>
-          <Link href={"/availabillity"} passHref>
-            <A fontWeight={"bold"}>空室情報</A>
-          </Link>
           <Link href={"/price"} passHref>
             <A fontWeight={"bold"}>料金表</A>
           </Link>
@@ -90,11 +87,6 @@ export const Header: React.VFC<Props> = (props) => {
           <Box>
             <Link href={"/guidance"} passHref>
               <A fontWeight={"bold"}>ご案内</A>
-            </Link>
-          </Box>
-          <Box>
-            <Link href={"/availabillity"} passHref>
-              <A fontWeight={"bold"}>空室情報</A>
             </Link>
           </Box>
           <Box>
