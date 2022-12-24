@@ -209,9 +209,12 @@ const Reserve: React.FC = () => {
                   />
                 </Center>
                 <Input
-                  value={checkInDate}
+                  defaultValue={checkInDate}
                   id={"checkInDate"}
                   {...register("checkInDate")}
+                  onChange={(e: any) => {
+                    setCheckInDate(e.target.value);
+                  }}
                 />
               </Box>
               <Box mb={5}>
