@@ -22,13 +22,13 @@ const SATURDAY = 6;
 const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day";
 
 const Reserve: React.FC = () => {
-  const [checkInDate, setCheckInDate] = useState(dayjs().format("YYYY/MM/DD"));
+  const [checkInDate, setCheckInDate] = useState(undefined);
   const { handleSubmit, register, watch } = useForm();
   const axios = Axios.create({
     baseURL: process.env.NEXT_PUBLIC_AXIOS_BASE_URL,
   });
   const inputOfEmail = watch("email");
-  console.log("aaaaa", watch("email"));
+
   const handleForm = async (values: any) => {
     const {
       name,
@@ -61,6 +61,7 @@ const Reserve: React.FC = () => {
     console.log({ res });
     console.log({ values });
   };
+  const canEntryReserve = inputOfEmail && checkInDate;
   return (
     <div>
       <Head>
@@ -79,7 +80,9 @@ const Reserve: React.FC = () => {
           <form onSubmit={handleSubmit(handleForm)} style={{ width: "100%" }}>
             <FormControl>
               <Box width={"100%"} mb={5}>
-                <FormLabel mb={1}>お名前</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  お名前
+                </FormLabel>
                 <Input
                   id={"name"}
                   placeholder={"山田太郎"}
@@ -87,7 +90,9 @@ const Reserve: React.FC = () => {
                 />
               </Box>
               <Box mb={5}>
-                <FormLabel mb={1}>ふりがな</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  ふりがな
+                </FormLabel>
                 <Input
                   id={"kana"}
                   placeholder={"やまだたろう"}
@@ -95,7 +100,9 @@ const Reserve: React.FC = () => {
                 />
               </Box>
               <Box mb={5}>
-                <FormLabel mb={1}>ご住所</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  ご住所
+                </FormLabel>
                 <Input
                   id={"address"}
                   placeholder={"長野県小谷村千国乙12840-1"}
@@ -103,7 +110,9 @@ const Reserve: React.FC = () => {
                 />
               </Box>
               <Box mb={5}>
-                <FormLabel mb={1}>電話番号</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  電話番号
+                </FormLabel>
                 <Input
                   id={"tel"}
                   placeholder={"090-1234-5678"}
@@ -111,7 +120,9 @@ const Reserve: React.FC = () => {
                 />
               </Box>
               <Box mb={5}>
-                <FormLabel mb={1}>メールアドレス</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  メールアドレス
+                </FormLabel>
                 <Input
                   id={"email"}
                   placeholder={"kadoya@gmail.com"}
@@ -125,7 +136,9 @@ const Reserve: React.FC = () => {
                 {...register("name")}
               /> */}
               <Box mb={5}>
-                <FormLabel mb={1}>チェックインご希望日</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  チェックインご希望日
+                </FormLabel>
                 <Box>カレンダーから選択してください</Box>
                 <Box color="red">空室状況をご確認の上お申し込みください。</Box>
                 <Center mt={3}>
@@ -199,7 +212,9 @@ const Reserve: React.FC = () => {
                 />
               </Box>
               <Box mb={5}>
-                <FormLabel mb={1}>宿泊日数</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  宿泊日数
+                </FormLabel>
                 <Box>{checkInDate} から、何泊されるか選択してください。</Box>
                 <Select id={"numberOfDays"} {...register("numberOfDays")}>
                   <option value={1}>1泊</option>
@@ -210,7 +225,9 @@ const Reserve: React.FC = () => {
                 </Select>
               </Box>
               <Box mb={5}>
-                <Box fontSize={"18px"}>宿泊人数</Box>
+                <Box fontSize={"18px"} fontWeight={"bold"}>
+                  宿泊人数
+                </Box>
                 <FormLabel mb={1}>大人(中学生以上)</FormLabel>
                 <Select id={"adult"} {...register("adult")} defaultValue={1}>
                   <option value={1}>1人</option>
@@ -258,15 +275,31 @@ const Reserve: React.FC = () => {
               </Box>
 
               <Box mb={5}>
-                <FormLabel mb={1}>備考欄</FormLabel>
+                <FormLabel mb={1} fontWeight={"bold"}>
+                  備考欄
+                </FormLabel>
                 <Textarea id={"remarks"} {...register("remarks")} rows={5} />
               </Box>
-              <Box>
+              {/* <Box>
                 早朝チェックインも承りますので、お気軽にお問合せください。
-              </Box>
+              </Box> */}
+              <Center>
+                {!canEntryReserve && (
+                  <Box color={"red.500"}>
+                    <Box as={"span"} fontWeight={"bold"}>
+                      メールアドレス
+                    </Box>
+                    、
+                    <Box as={"span"} fontWeight={"bold"}>
+                      チェックインご希望日
+                    </Box>
+                    の記入に不備がないかご確認ください。
+                  </Box>
+                )}
+              </Center>
               <Center my={4}>
                 <Button
-                  disabled={!inputOfEmail}
+                  disabled={!canEntryReserve}
                   type={"submit"}
                   bgColor={"orange.200"}
                 >
