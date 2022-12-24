@@ -24,3 +24,8 @@
 .react-calendar__check_in_day {
   background: #f6ad55 !important;
 }
+
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev-8-button {
+  display: none;
+}

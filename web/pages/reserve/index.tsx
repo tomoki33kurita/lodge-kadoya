@@ -22,7 +22,7 @@ const SATURDAY = 6;
 const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day";
 
 const Reserve: React.FC = () => {
-  const [checkInDate, setCheckInDate] = useState(undefined);
+  const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined);
   const { handleSubmit, register, watch } = useForm();
   const axios = Axios.create({
     baseURL: process.env.NEXT_PUBLIC_AXIOS_BASE_URL,
@@ -180,12 +180,14 @@ const Reserve: React.FC = () => {
                         case "2023/02/23":
                         case "2023/03/21":
                           return "react-calendar__national__holiday";
+                        case "2022/12/30":
+                        case "2022/12/31":
                         case "2023/01/01":
+                        case "2023/01/02":
                         case "2023/01/07":
                         case "2023/01/08":
                           return "react-calendar__full";
                         case "2022/12/29":
-                        case "2022/12/30":
                           return "react-calendar__few";
                       }
                       switch (tileOfDay) {
@@ -201,6 +203,7 @@ const Reserve: React.FC = () => {
                       return "";
                     }}
                     onChange={(e: Date) => {
+                      //
                       setCheckInDate(dayjs(e).format("YYYY/MM/DD"));
                     }}
                   />
