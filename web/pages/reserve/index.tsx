@@ -36,7 +36,6 @@ const Reserve: React.FC = () => {
       address,
       tel,
       email,
-      checkInDate,
       numberOfDays,
       adult,
       child,
@@ -44,7 +43,7 @@ const Reserve: React.FC = () => {
       infant,
       remarks,
     } = values;
-    const res = await axios.post("/api/sendMail", {
+    await axios.post("/api/sendMail", {
       name,
       kana,
       address,
@@ -58,8 +57,6 @@ const Reserve: React.FC = () => {
       infant,
       remarks,
     });
-    console.log({ res });
-    console.log({ values });
   };
   const canEntryReserve = inputOfEmail && checkInDate;
   return (
