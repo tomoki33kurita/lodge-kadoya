@@ -173,7 +173,7 @@ const Reserve: React.FC = () => {
                         case checkInDate:
                           return CHECKIN_DATE_CLASS_NAME;
                         case "2023/01/09":
-                        case "2023/02/11":
+                        // case "2023/02/11":
                         case "2023/02/23":
                         case "2023/03/21":
                           return "react-calendar__national__holiday";
@@ -183,6 +183,8 @@ const Reserve: React.FC = () => {
                         case "2023/01/02":
                         case "2023/01/07":
                         case "2023/01/08":
+                        case "2023/02/11":
+                        case "2023/02/18":
                           return "react-calendar__full";
                         case "2022/12/29":
                           return "react-calendar__few";
