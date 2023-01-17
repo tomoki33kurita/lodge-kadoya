@@ -161,6 +161,17 @@ const Reserve: React.FC = () => {
                     />
                     <Box>残りわずか</Box>
                   </Center>
+                  <Center>
+                    <Box
+                      style={{
+                        background: "#7bad8f",
+                        width: "30px",
+                        height: "30px",
+                        display: "inline-block",
+                      }}
+                    />
+                    <Box>休業</Box>
+                  </Center>
                 </Center>
                 <Center>
                   <Calendar
@@ -172,6 +183,18 @@ const Reserve: React.FC = () => {
                       switch (tileOfDate) {
                         case checkInDate:
                           return CHECKIN_DATE_CLASS_NAME;
+                        // 一時的表示＿後で消す＿ここから
+                        case "2023/01/17":
+                        case "2023/01/18":
+                        case "2023/01/19":
+                        case "2023/01/20":
+                        case "2023/01/21":
+                        case "2023/01/22":
+                        case "2023/01/23":
+                        case "2023/01/24":
+                        case "2023/01/25":
+                          return "react-calendar__closed";
+                        // 一時的表示＿後で消す＿ここまで
                         case "2023/01/09":
                         // case "2023/02/11":
                         case "2023/02/23":
