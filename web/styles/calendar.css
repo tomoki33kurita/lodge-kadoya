@@ -8,6 +8,10 @@
 .react-calendar__few {
   background: skyblue !important;
 }
+.react-calendar__few__saturday {
+  background: skyblue !important;
+  color: blue !important;
+}
 .react-calendar__closed {
   background: #7bad8f !important;
 }

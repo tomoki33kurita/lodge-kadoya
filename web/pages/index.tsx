@@ -18,7 +18,7 @@ const Home: React.FC = () => {
           bgRepeat={"no-repeat"}
           bgSize={"cover"}
         />
-        <Center mt={5}>
+        {/* <Center mt={5}>
           <Box as={"h2"} color={"pink.500"} fontWeight={"bold"}>
             2023/01/17~2023/01/25の間、休業いたします。
           </Box>
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
           <Box as={"h2"} color={"pink.500"} fontWeight={"bold"}>
             ご迷惑をお掛けして申し訳ありませんがご容赦ください。
           </Box>
-        </Center>
+        </Center> */}
 
         <Center my={5}>
           <Box>

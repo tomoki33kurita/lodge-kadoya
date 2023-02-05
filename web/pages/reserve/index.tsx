@@ -211,6 +211,8 @@ const Reserve: React.FC = () => {
                           return "react-calendar__full";
                         case "2022/12/29":
                           return "react-calendar__few";
+                        case "2023/03/18":
+                          return "react-calendar__few__saturday";
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
