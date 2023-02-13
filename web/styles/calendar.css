@@ -12,6 +12,10 @@
   background: skyblue !important;
   color: blue !important;
 }
+.react-calendar__few__holiday {
+  background: skyblue !important;
+  color: red !important;
+}
 .react-calendar__closed {
   background: #7bad8f !important;
 }
