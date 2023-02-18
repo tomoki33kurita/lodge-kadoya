@@ -211,11 +211,12 @@ const Reserve: React.FC = () => {
                         case "2022/12/29":
                         case "2023/02/24":
                         case "2023/02/25":
+                          return "react-calendar__few";
                         case "2023/03/04":
                         case "2023/03/18":
-                          return "react-calendar__few";
-                        case "2023/03/18":
                           return "react-calendar__few__saturday";
+                        case "2023/03/11":
+                          return "react-calendar__full__saturday";
                         case "2023/02/23":
                           return "react-calendar__few__holiday";
                       }

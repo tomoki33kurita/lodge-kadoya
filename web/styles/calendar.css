@@ -5,6 +5,10 @@
 .react-calendar__full {
   background: pink !important;
 }
+.react-calendar__full__saturday {
+  background: pink !important;
+  color: blue !important;
+}
 .react-calendar__few {
   background: skyblue !important;
 }
