@@ -193,12 +193,12 @@ const Reserve: React.FC = () => {
                         case "2023/01/23":
                         case "2023/01/24":
                         case "2023/01/25":
-                          return "react-calendar__closed";
+                          return "closed"; // 休業
                         // 一時的表示＿後で消す＿ここまで
                         case "2023/01/09":
                         // case "2023/02/11":
                         case "2023/03/21":
-                          return "react-calendar__national__holiday";
+                          return "national__holiday";
                         case "2022/12/30":
                         case "2022/12/31":
                         case "2023/01/01":
@@ -206,29 +206,29 @@ const Reserve: React.FC = () => {
                         case "2023/01/07":
                         case "2023/01/08":
                         case "2023/02/11":
-                          return "react-calendar__full";
+                          return "full";
                         case "2022/12/29":
                         case "2023/02/24":
-                          return "react-calendar__few";
+                          return "few";
                         case "2023/03/04":
-                          return "react-calendar__few__saturday";
+                        case "2023/03/18":
+                          return "few__saturday";
                         case "2023/02/18":
                         case "2023/02/25":
                         case "2023/03/11":
-                        case "2023/03/18":
-                          return "react-calendar__full__saturday";
+                          return "full__saturday";
                         case "2023/02/23":
-                          return "react-calendar__few__holiday";
+                          return "few__holiday";
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
                           return checkInDate === tileOfDate
                             ? CHECKIN_DATE_CLASS_NAME
-                            : "react-calendar__saturday";
+                            : "saturday";
                         case SUNDAY:
                           return checkInDate === tileOfDate
                             ? CHECKIN_DATE_CLASS_NAME
-                            : "react-calendar__sunday";
+                            : "sunday";
                       }
                       return "";
                     }}

@@ -1,44 +1,44 @@
-.react-calendar__tile--active {
+.tile--active {
   background: white !important;
   color: #292929 !important;
 }
-.react-calendar__full {
+.full {
   background: pink !important;
 }
-.react-calendar__full__saturday {
+.full__saturday {
   background: pink !important;
   color: blue !important;
 }
-.react-calendar__few {
+.few {
   background: skyblue !important;
 }
-.react-calendar__few__saturday {
+.few__saturday {
   background: skyblue !important;
   color: blue !important;
 }
-.react-calendar__few__holiday {
+.few__holiday {
   background: skyblue !important;
   color: red !important;
 }
-.react-calendar__closed {
+.closed {
   background: #7bad8f !important;
 }
-.react-calendar__saturday {
+.saturday {
   color: blue !important;
 }
-.react-calendar__sunday {
+.sunday {
   color: red !important;
 }
 
-.react-calendar__national__holiday {
+.national__holiday {
   color: red !important;
 }
 
-.react-calendar__check_in_day {
+.check_in_day {
   background: #f6ad55 !important;
 }
 
-.react-calendar__navigation__next2-button,
-.react-calendar__navigation__prev-8-button {
+.navigation__next2-button,
+.navigation__prev-8-button {
   display: none;
 }
