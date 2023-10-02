@@ -8,9 +8,9 @@ import {
   TableContainer,
   Button,
   Link as A,
-} from "@chakra-ui/react";
-import Head from "next/head";
-import { LinkButton } from "../../components/LinkButton";
+} from "@chakra-ui/react"
+import Head from "next/head"
+import { LinkButton } from "../../components/LinkButton"
 
 const PriceSheet: React.FC = () => {
   return (
@@ -35,7 +35,7 @@ const PriceSheet: React.FC = () => {
               textAlign={"center"}
               mb={3}
             >
-              2022/2023シーズンのご予約を受け付けております
+              2023/2024シーズンのご予約を受け付けております
             </Box>
             <Box mb={3}>※以下の料金表は2022~2023年シーズンです(税込価格)</Box>
             <Box mb={3}>
@@ -63,7 +63,11 @@ const PriceSheet: React.FC = () => {
                   <Td>
                     連休
                     <br />
-                    (1.7,8)
+                    (1.6,7)
+                    <br />
+                    (2.10,11)
+                    <br />
+                    (2.23,24)
                   </Td>
                   <Td>通常平日</Td>
                   <Td>通常週末</Td>
@@ -71,32 +75,32 @@ const PriceSheet: React.FC = () => {
                 <Tr>
                   <Td>大人</Td>
                   <Td>二食付</Td>
-                  <Td isNumeric>9,300</Td>
-                  <Td isNumeric>8,800</Td>
-                  <Td isNumeric>8,300</Td>
-                  <Td isNumeric>8,300</Td>
+                  <Td isNumeric>9,500</Td>
+                  <Td isNumeric>9,000</Td>
+                  <Td isNumeric>8,500</Td>
+                  <Td isNumeric>8,500</Td>
                 </Tr>
                 <Tr>
                   <Td>小学生</Td>
                   <Td>二食付</Td>
-                  <Td isNumeric>8,300</Td>
-                  <Td isNumeric>7,800</Td>
-                  <Td isNumeric>7,300</Td>
-                  <Td isNumeric>7,300</Td>
+                  <Td isNumeric>8,500</Td>
+                  <Td isNumeric>8,000</Td>
+                  <Td isNumeric>7,500</Td>
+                  <Td isNumeric>7,500</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>二食付</Td>
-                  <Td isNumeric>4,600</Td>
-                  <Td isNumeric>4,400</Td>
-                  <Td isNumeric>4,000</Td>
-                  <Td isNumeric>4,000</Td>
+                  <Td isNumeric>4,800</Td>
+                  <Td isNumeric>4,500</Td>
+                  <Td isNumeric>4,300</Td>
+                  <Td isNumeric>4,300</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>食事無</Td>
+                  <Td isNumeric>2,000</Td>
                   <Td isNumeric>1,800</Td>
-                  <Td isNumeric>1,700</Td>
                   <Td isNumeric>1,700</Td>
                   <Td isNumeric>1,700</Td>
                 </Tr>
@@ -123,7 +127,7 @@ const PriceSheet: React.FC = () => {
         </Center>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default PriceSheet;
+export default PriceSheet
