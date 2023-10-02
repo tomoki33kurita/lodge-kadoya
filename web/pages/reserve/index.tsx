@@ -185,7 +185,6 @@ const Reserve: React.FC = () => {
                           return CHECKIN_DATE_CLASS_NAME
                         case "2023/01/17":
                           return "closed" // 休業
-                        case "2024/01/01":
                         case "2024/01/08":
                         case "2024/02/12":
                         case "2024/02/23":
