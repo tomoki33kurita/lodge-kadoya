@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from "next/head"
 import {
   Center,
   Box,
@@ -8,26 +8,26 @@ import {
   Button,
   Textarea,
   Select,
-} from "@chakra-ui/react";
-import { useForm } from "react-hook-form";
-import { Calendar } from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import dayjs from "dayjs";
-import React, { useState } from "react";
-import { LinkButton } from "../../components/LinkButton";
-import Axios from "axios";
+} from "@chakra-ui/react"
+import { useForm } from "react-hook-form"
+import { Calendar } from "react-calendar"
+import "react-calendar/dist/Calendar.css"
+import dayjs from "dayjs"
+import React, { useState } from "react"
+import { LinkButton } from "../../components/LinkButton"
+import Axios from "axios"
 
-const SUNDAY = 0;
-const SATURDAY = 6;
-const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day";
+const SUNDAY = 0
+const SATURDAY = 6
+const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day"
 
 const Reserve: React.FC = () => {
-  const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined);
-  const { handleSubmit, register, watch } = useForm();
+  const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
+  const { handleSubmit, register, watch } = useForm()
   const axios = Axios.create({
     baseURL: process.env.NEXT_PUBLIC_AXIOS_BASE_URL,
-  });
-  const inputOfEmail = watch("email");
+  })
+  const inputOfEmail = watch("email")
 
   const handleForm = async (values: any) => {
     const {
@@ -42,7 +42,7 @@ const Reserve: React.FC = () => {
       infantWithMeals,
       infant,
       remarks,
-    } = values;
+    } = values
     await axios.post("/api/sendMail", {
       name,
       kana,
@@ -56,9 +56,9 @@ const Reserve: React.FC = () => {
       infantWithMeals,
       infant,
       remarks,
-    });
-  };
-  const canEntryReserve = inputOfEmail && checkInDate;
+    })
+  }
+  const canEntryReserve = inputOfEmail && checkInDate
   return (
     <div>
       <Head>
@@ -178,63 +178,48 @@ const Reserve: React.FC = () => {
                     calendarType={"US"}
                     formatDay={(_, date) => dayjs(date).format("D")}
                     tileClassName={(a) => {
-                      const tileOfDate = dayjs(a.date).format("YYYY/MM/DD");
-                      const tileOfDay = dayjs(a.date).day();
+                      const tileOfDate = dayjs(a.date).format("YYYY/MM/DD")
+                      const tileOfDay = dayjs(a.date).day()
                       switch (tileOfDate) {
                         case checkInDate:
-                          return CHECKIN_DATE_CLASS_NAME;
-                        // 一時的表示＿後で消す＿ここから
+                          return CHECKIN_DATE_CLASS_NAME
                         case "2023/01/17":
-                        case "2023/01/18":
-                        case "2023/01/19":
-                        case "2023/01/20":
-                        case "2023/01/21":
-                        case "2023/01/22":
-                        case "2023/01/23":
-                        case "2023/01/24":
-                        case "2023/01/25":
-                          return "closed"; // 休業
-                        // 一時的表示＿後で消す＿ここまで
-                        case "2023/01/09":
-                        // case "2023/02/11":
-                        case "2023/03/21":
-                          return "national__holiday";
-                        case "2022/12/30":
-                        case "2022/12/31":
-                        case "2023/01/01":
-                        case "2023/01/02":
-                        case "2023/01/07":
-                        case "2023/01/08":
-                        case "2023/02/11":
-                          return "full";
-                        case "2022/12/29":
-                        case "2023/02/24":
-                          return "few";
+                          return "closed" // 休業
+                        case "2024/01/01":
+                        case "2024/01/08":
+                        case "2024/02/12":
+                        case "2024/02/23":
+                        case "2024/03/20":
+                          return "national__holiday"
+                        case "2023/12/30":
+                        case "2023/12/31":
+                          return "full"
+                        case "2023/12/29":
+                        case "2024/01/01":
+                        case "2024/01/02":
+                          return "few"
                         case "2023/03/04":
-                        case "2023/03/18":
-                          return "few__saturday";
+                          return "few__saturday"
                         case "2023/02/18":
-                        case "2023/02/25":
-                        case "2023/03/11":
-                          return "full__saturday";
+                          return "full__saturday"
                         case "2023/02/23":
-                          return "few__holiday";
+                          return "few__holiday"
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
                           return checkInDate === tileOfDate
                             ? CHECKIN_DATE_CLASS_NAME
-                            : "saturday";
+                            : "saturday"
                         case SUNDAY:
                           return checkInDate === tileOfDate
                             ? CHECKIN_DATE_CLASS_NAME
-                            : "sunday";
+                            : "sunday"
                       }
-                      return "";
+                      return ""
                     }}
                     onChange={(e: Date) => {
                       //
-                      setCheckInDate(dayjs(e).format("YYYY/MM/DD"));
+                      setCheckInDate(dayjs(e).format("YYYY/MM/DD"))
                     }}
                   />
                 </Center>
@@ -243,7 +228,7 @@ const Reserve: React.FC = () => {
                   id={"checkInDate"}
                   {...register("checkInDate")}
                   onChange={(e: any) => {
-                    setCheckInDate(e.target.value);
+                    setCheckInDate(e.target.value)
                   }}
                 />
               </Box>
@@ -350,7 +335,7 @@ const Reserve: React.FC = () => {
         </Center>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Reserve;
+export default Reserve
