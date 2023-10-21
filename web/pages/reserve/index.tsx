@@ -192,14 +192,19 @@ const Reserve: React.FC = () => {
                           return "national__holiday"
                         case "2023/12/30":
                         case "2023/12/31":
+                        case "2024/01/02":
                           return "full"
                         case "2023/12/29":
                         case "2024/01/01":
-                        case "2024/01/02":
                           return "few"
-                        case "2023/03/04":
+                        case "2024/01/06":
+                        case "2024/02/03":
                           return "few__saturday"
-                        case "2023/02/18":
+                        case "2024/01/07":
+                        case "2024/02/04":
+                          return "few__sunday"
+                        case "2024/01/20":
+                        case "2024/03/09":
                           return "full__saturday"
                         case "2023/02/23":
                           return "few__holiday"
