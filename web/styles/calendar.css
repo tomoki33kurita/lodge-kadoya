@@ -24,6 +24,10 @@
   background: skyblue !important;
   color: red !important;
 }
+.full__holiday {
+  background: pink !important;
+  color: red !important;
+}
 .closed {
   background: #7bad8f !important;
 }
