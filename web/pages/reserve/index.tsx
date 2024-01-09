@@ -16,6 +16,7 @@ import dayjs from "dayjs"
 import React, { useState } from "react"
 import { LinkButton } from "../../components/LinkButton"
 import Axios from "axios"
+import { useRouter } from "next/router"
 
 const SUNDAY = 0
 const SATURDAY = 6
@@ -23,40 +24,54 @@ const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day"
 
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
+  const [isSending, setIsSending] = useState(false)
   const { handleSubmit, register, watch } = useForm()
   const axios = Axios.create({
     baseURL: process.env.NEXT_PUBLIC_AXIOS_BASE_URL,
   })
   const inputOfEmail = watch("email")
+  const router = useRouter()
 
   const handleForm = async (values: any) => {
-    const {
-      name,
-      kana,
-      address,
-      tel,
-      email,
-      numberOfDays,
-      adult,
-      child,
-      infantWithMeals,
-      infant,
-      remarks,
-    } = values
-    await axios.post("/api/sendMail", {
-      name,
-      kana,
-      address,
-      tel,
-      email,
-      checkInDate,
-      numberOfDays,
-      adult,
-      child,
-      infantWithMeals,
-      infant,
-      remarks,
-    })
+    try {
+      setIsSending(true)
+      const {
+        name,
+        kana,
+        address,
+        tel,
+        email,
+        numberOfDays,
+        adult,
+        child,
+        infantWithMeals,
+        infant,
+        remarks,
+      } = values
+      await axios
+        .post("/api/sendMail", {
+          name,
+          kana,
+          address,
+          tel,
+          email,
+          checkInDate,
+          numberOfDays,
+          adult,
+          child,
+          infantWithMeals,
+          infant,
+          remarks,
+        })
+        .then((_) => {
+          setIsSending(false)
+          alert("予約申し込みが完了しました。")
+          router.reload()
+        })
+    } catch (e) {
+      setIsSending(false)
+      console.log("error occur!!", e)
+    }
   }
   const canEntryReserve = inputOfEmail && checkInDate
   return (
@@ -329,7 +344,7 @@ const Reserve: React.FC = () => {
               </Center>
               <Center my={4}>
                 <Button
-                  disabled={!canEntryReserve}
+                  disabled={!canEntryReserve || isSending}
                   type={"submit"}
                   bgColor={"orange.200"}
                 >
