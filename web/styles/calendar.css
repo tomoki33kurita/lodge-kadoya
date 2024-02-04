@@ -9,6 +9,11 @@
   background: pink !important;
   color: blue !important;
 }
+.full__sunday {
+  background: pink !important;
+  color: red !important;
+}
+
 .few {
   background: skyblue !important;
 }

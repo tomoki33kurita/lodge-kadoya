@@ -207,27 +207,34 @@ const Reserve: React.FC = () => {
                         case "2023/12/29":
                         case "2023/12/30":
                           return "full"
-                        // return "few"
+                        // return FEW 残りわずか
+                        case "2024/01/02":
+                        case "2024/01/03":
+                        case "2023/02/23":
+                        case "2024/03/01":
+                          return "few__holiday"
                         case "2024/01/06":
                         case "2024/01/27":
                         case "2024/02/03":
+                        case "2024/02/10":
+                        case "2024/02/17":
+                        case "2024/02/24":
                           return "few__saturday"
                         case "2024/01/07":
                         case "2024/02/04":
                           return "few__sunday"
-                        case "2024/01/20":
-                        case "2024/02/10":
-                        case "2024/02/24":
-                        case "2024/03/09":
-                          return "full__saturday"
-                        case "2024/01/02":
-                        case "2024/01/03":
-                        case "2023/02/23":
-                          return "few__holiday"
+
+                        // return FULL 満室
                         case "2023/12/31":
                         case "2024/01/01":
                         case "2024/02/23":
                           return "full__holiday"
+                        case "2024/01/20":
+                        case "2024/03/02":
+                        case "2024/03/09":
+                          return "full__saturday"
+                        case "2024/02/11":
+                          return "full__sunday"
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
