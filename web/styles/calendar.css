@@ -33,8 +33,9 @@
   background: pink !important;
   color: red !important;
 }
-.closed {
+.closed_saturday {
   background: #7bad8f !important;
+  color: blue !important;
 }
 .saturday {
   color: blue !important;
