@@ -35,10 +35,10 @@ const PriceSheet: React.FC = () => {
               textAlign={"center"}
               mb={3}
             >
-              2023/2024シーズンのご予約を受け付けております
+              2024/2025シーズンのご予約を受け付けております
             </Box>
             <Box mb={3}>※以下の料金表は2022~2023年シーズンです(税込価格)</Box>
-            <Box mb={3}>
+            <Box mb={3} color={"blue.700"} fontWeight={"bold"}>
               ※物価上昇などのため、値上げさせていただきます。何卒ご容赦ください。
             </Box>
           </Box>
@@ -58,51 +58,48 @@ const PriceSheet: React.FC = () => {
                   <Td>
                     年末年始
                     <br />
-                    (12.29~1.3)
+                    (12.28~1.4)
                   </Td>
                   <Td>
                     連休
                     <br />
-                    (1.6,7)
+                    (1.11,12)
                     <br />
-                    (2.10,11)
-                    <br />
-                    (2.23,24)
+                    (2.22,23)
                   </Td>
-                  <Td>通常平日</Td>
-                  <Td>通常週末</Td>
+                  <Td>
+                    その他
+                    <br />
+                    平日,週末
+                  </Td>
                 </Tr>
                 <Tr>
                   <Td>大人</Td>
                   <Td>二食付</Td>
+                  <Td isNumeric>9,800</Td>
                   <Td isNumeric>9,500</Td>
-                  <Td isNumeric>9,000</Td>
-                  <Td isNumeric>8,500</Td>
-                  <Td isNumeric>8,500</Td>
+                  <Td isNumeric>9,300</Td>
                 </Tr>
                 <Tr>
                   <Td>小学生</Td>
                   <Td>二食付</Td>
+                  <Td isNumeric>8,800</Td>
                   <Td isNumeric>8,500</Td>
-                  <Td isNumeric>8,000</Td>
-                  <Td isNumeric>7,500</Td>
-                  <Td isNumeric>7,500</Td>
+                  <Td isNumeric>8,300</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>二食付</Td>
+                  <Td isNumeric>5,000</Td>
                   <Td isNumeric>4,800</Td>
                   <Td isNumeric>4,500</Td>
-                  <Td isNumeric>4,300</Td>
-                  <Td isNumeric>4,300</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>食事無</Td>
                   <Td isNumeric>2,000</Td>
+                  <Td isNumeric>1,900</Td>
                   <Td isNumeric>1,800</Td>
-                  <Td isNumeric>1,700</Td>
-                  <Td isNumeric>1,700</Td>
                 </Tr>
               </Tbody>
             </Table>

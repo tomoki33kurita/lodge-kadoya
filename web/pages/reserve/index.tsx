@@ -201,44 +201,30 @@ const Reserve: React.FC = () => {
                         case "2023/01/17":
                           return "closed" // 休業
                         case "2024/01/08":
-                        case "2024/02/12":
-                        case "2024/03/20":
                           return "national__holiday"
                         case "2023/12/29":
-                        case "2023/12/30":
                           return "full"
                         // return FEW 残りわずか
-                        case "2024/01/02":
-                        case "2024/01/03":
-                        case "2023/02/23":
-                        case "2024/03/01":
+                        case "2024/12/31":
+                        case "2025/01/01":
                           return "few__holiday"
-                        case "2024/01/06":
-                        case "2024/01/27":
-                        case "2024/02/03":
-                        case "2024/02/17":
+                        case "2025/02/08":
                           return "few__saturday"
                         case "2024/01/07":
-                        case "2024/02/04":
                           return "few__sunday"
 
                         // return FULL 満室
-                        case "2023/12/31":
-                        case "2024/01/01":
-                        case "2024/02/23":
+                        case "2024/12/30":
+                        case "2025/01/12":
                           return "full__holiday"
-                        case "2024/01/20":
-                        case "2024/02/10":
-                        case "2024/02/24":
-                        case "2024/03/02":
-                        case "2024/03/09":
+                        case "2025/01/11":
+                        case "2025/02/22":
                           return "full__saturday"
-                        case "2024/02/11":
+                        case "2024/12/29":
+                        case "2025/02/23":
                           return "full__sunday"
-                        case "2024/03/30":
-                        case "2024/04/13":
-                        case "2024/04/20":
-                          return "closed_saturday"
+                        // case "2024/12/29":
+                        //   return "closed_saturday"
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
