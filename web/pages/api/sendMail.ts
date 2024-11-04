@@ -1,20 +1,18 @@
-import type { NextApiRequest } from "next";
-import nodemailer from "nodemailer";
+import type { NextApiRequest } from "next"
+import nodemailer from "nodemailer"
 
 // eslint-disable-next-line
 export default async (req: NextApiRequest, res: any) => {
   try {
-    const data = req.body;
+    const data = req.body
     const transporter = nodemailer.createTransport({
-      // @ts-ignore
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: process.env.SMTP_SECURE,
+      service: "gmail",
       auth: {
         user: process.env.SMTP_AUTH_USER,
         pass: process.env.SMTP_AUTH_PASS,
       },
-    });
+    })
+
     //  以下、申込者に送付するメール
     const toCustomer = await transporter.sendMail({
       from: process.env.SMTP_AUTH_USER,
@@ -22,8 +20,8 @@ export default async (req: NextApiRequest, res: any) => {
       // bcc: "kadoya.volley@gmail.com",
       subject: `【栂池ロッヂかどや】ご予約申し込みを承りました。`,
       html: toCustomerTextGenerator(data),
-    });
-    console.log("Mail order data sent: ", toCustomer.messageId);
+    })
+    console.log("Mail order data sent: ", toCustomer.messageId)
 
     //  以下、かどやに送付するメール
     const toKadoya = await transporter.sendMail({
@@ -31,14 +29,14 @@ export default async (req: NextApiRequest, res: any) => {
       to: "kadoya.volley@gmail.com",
       subject: `【新規】予約申込みがありました。`,
       html: toKadoyaTextGenerator(data),
-    });
-    console.log("Mail order data sent: ", toKadoya.messageId);
-    return res.status(200).end();
+    })
+    console.log("Mail order data sent: ", toKadoya.messageId)
+    return res.status(200).end()
   } catch (err) {
-    console.log(err);
-    res.status(500).send();
+    console.log(err)
+    res.status(500).send()
   }
-};
+}
 
 const toCustomerTextGenerator = (data: any) => {
   const {
@@ -54,7 +52,7 @@ const toCustomerTextGenerator = (data: any) => {
     infantWithMeals,
     infant,
     remarks,
-  } = data;
+  } = data
   return `
   <html>
     <head></head>
@@ -81,8 +79,8 @@ const toCustomerTextGenerator = (data: any) => {
         <div>${remarks}</div>
       </div>
     </body>
-  </html>`;
-};
+  </html>`
+}
 
 const toKadoyaTextGenerator = (data: any) => {
   const {
@@ -98,7 +96,7 @@ const toKadoyaTextGenerator = (data: any) => {
     infantWithMeals,
     infant,
     remarks,
-  } = data;
+  } = data
   return `
   <html>
     <head></head>
@@ -119,5 +117,5 @@ const toKadoyaTextGenerator = (data: any) => {
         <div>${remarks}</div>
       </div>
     </body>
-  </html>`;
-};
+  </html>`
+}

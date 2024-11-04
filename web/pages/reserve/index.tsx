@@ -48,6 +48,20 @@ const Reserve: React.FC = () => {
         infant,
         remarks,
       } = values
+      console.log({
+        name,
+        kana,
+        address,
+        tel,
+        email,
+        checkInDate,
+        numberOfDays,
+        adult,
+        child,
+        infantWithMeals,
+        infant,
+        remarks,
+      })
       await axios
         .post("/api/sendMail", {
           name,
@@ -88,7 +102,7 @@ const Reserve: React.FC = () => {
             ご予約
           </Box>
         </Center>
-        <Center my={3} mx={"auto"} width={"80%"}>
+        <Center mt={3} mb={6} mx={"auto"} width={"80%"}>
           <form onSubmit={handleSubmit(handleForm)} style={{ width: "100%" }}>
             <FormControl>
               <Box width={"100%"} mb={5}>
@@ -346,9 +360,11 @@ const Reserve: React.FC = () => {
               </Center>
               <Center my={4}>
                 <Button
+                  size={"lg"}
                   disabled={!canEntryReserve || isSending}
                   type={"submit"}
-                  bgColor={"orange.200"}
+                  color={"white"}
+                  bgColor={"teal.500"}
                 >
                   予約を申し込む
                 </Button>
@@ -356,8 +372,14 @@ const Reserve: React.FC = () => {
             </FormControl>
           </form>
         </Center>
-        <Center mb={6}>
-          <LinkButton href={"/price"} label={"料金表"} />
+        <Center mt={3} mb={6}>
+          <LinkButton
+            size={"md"}
+            href={"/price"}
+            label={"料金表を再確認する"}
+            color={"teal.500"}
+            bgColor={"white.200"}
+          />
         </Center>
       </main>
     </div>
