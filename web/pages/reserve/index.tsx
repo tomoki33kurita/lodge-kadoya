@@ -220,6 +220,7 @@ const Reserve: React.FC = () => {
                         case "2024/12/29":
                         case "2024/12/30":
                         case "2025/01/01":
+                        case "2025/01/02":
                         case "2025/01/03":
                         case "2025/01/31":
                           return "few__holiday"
@@ -233,7 +234,6 @@ const Reserve: React.FC = () => {
                         // return FULL 満室
                         case "2024/12/31":
                         case "2025/01/12":
-                        case "2025/01/02":
                           return "full__holiday"
                         case "2025/01/11":
                         case "2025/02/08":
