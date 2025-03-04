@@ -244,8 +244,12 @@ const Reserve: React.FC = () => {
                         case "2024/12/30":
                         case "2025/02/23":
                           return "full__sunday"
-                        // case "2024/12/29":
-                        //   return "closed_saturday"
+                        case "2025/03/29":
+                        case "2025/04/05":
+                          return "closed_saturday"
+                        case "2025/03/30":
+                        case "2025/04/06":
+                          return "closed_sunday"
                       }
                       switch (tileOfDay) {
                         case SATURDAY:

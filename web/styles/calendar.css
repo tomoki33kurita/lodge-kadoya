@@ -37,6 +37,10 @@
   background: #7bad8f !important;
   color: blue !important;
 }
+.closed_sunday {
+  background: #7bad8f !important;
+  color: red !important;
+}
 .saturday {
   color: blue !important;
 }
