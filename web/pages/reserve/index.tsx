@@ -20,7 +20,7 @@ import { useRouter } from "next/router"
 
 const SUNDAY = 0
 const SATURDAY = 6
-const CHECKIN_DATE_CLASS_NAME = "react-calendar__check_in_day"
+const CHECK_IN_DATE_CLASS_NAME = "react-calendar__check_in_day"
 
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
@@ -211,54 +211,59 @@ const Reserve: React.FC = () => {
                       const tileOfDay = dayjs(a.date).day()
                       switch (tileOfDate) {
                         case checkInDate:
-                          return CHECKIN_DATE_CLASS_NAME
-                        case "2023/01/17":
-                          return "closed" // 休業
+                          return CHECK_IN_DATE_CLASS_NAME
                         case "2024/01/08":
                           return "national__holiday" // 祝日
                         // return FEW 残りわずか
-                        case "2024/12/31":
-                        case "2025/01/01":
-                        case "2025/01/03":
                         case "2025/01/31":
                           return "few__holiday"
                         case "2025/03/15":
                           return "few__saturday"
                         case "2024/01/07":
                           return "few__sunday"
-
                         // return FULL 満室
-                        case "2025/01/02":
                         case "2025/01/12":
                           return "full__holiday"
-                        case "2024/12/28":
-                        case "2025/01/11":
-                        case "2025/01/18":
-                        case "2025/01/25":
-                        case "2025/02/01":
-                        case "2025/02/08":
-                        case "2025/02/15":
                         case "2025/02/22":
                           return "full__saturday"
-                        case "2024/12/29":
-                        case "2024/12/30":
                         case "2025/02/23":
                           return "full__sunday"
-                        case "2025/03/29":
+                        case "2025/04/02":
+                        case "2025/04/03":
+                        case "2025/04/04":
+                        case "2025/04/07":
+                        case "2025/04/08":
+                        case "2025/04/09":
+                        case "2025/04/10":
+                        case "2025/04/11":
+                        case "2025/04/14":
+                        case "2025/04/15":
+                        case "2025/04/16":
+                        case "2025/04/17":
+                        case "2025/04/18":
+                        case "2025/04/21":
+                        case "2025/04/22":
+                        case "2025/04/23":
+                        case "2025/04/24":
+                        case "2025/04/25":
+                          return "closed" // 休業
                         case "2025/04/05":
+                        case "2025/04/12":
+                        case "2025/04/19":
                           return "closed_saturday"
-                        case "2025/03/30":
                         case "2025/04/06":
+                        case "2025/04/13":
+                        case "2025/04/20":
                           return "closed_sunday"
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
                           return checkInDate === tileOfDate
-                            ? CHECKIN_DATE_CLASS_NAME
+                            ? CHECK_IN_DATE_CLASS_NAME
                             : "saturday"
                         case SUNDAY:
                           return checkInDate === tileOfDate
-                            ? CHECKIN_DATE_CLASS_NAME
+                            ? CHECK_IN_DATE_CLASS_NAME
                             : "sunday"
                       }
                       return ""
