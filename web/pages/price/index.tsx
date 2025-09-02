@@ -58,14 +58,16 @@ const PriceSheet: React.FC = () => {
                   <Td>
                     年末年始
                     <br />
-                    (12.28~1.4)
+                    (12.27~1.3)
                   </Td>
                   <Td>
                     連休
                     <br />
-                    (1.11,12)
+                    (1.10,11)
                     <br />
-                    (2.22,23)
+                    (2.21,22)
+                    <br />
+                    (3.20,21)
                   </Td>
                   <Td>
                     その他
@@ -76,30 +78,30 @@ const PriceSheet: React.FC = () => {
                 <Tr>
                   <Td>大人</Td>
                   <Td>二食付</Td>
-                  <Td isNumeric>9,800</Td>
-                  <Td isNumeric>9,500</Td>
-                  <Td isNumeric>9,300</Td>
+                  <Td isNumeric>10,500</Td>
+                  <Td isNumeric>10,300</Td>
+                  <Td isNumeric>10,000</Td>
                 </Tr>
                 <Tr>
                   <Td>小学生</Td>
                   <Td>二食付</Td>
-                  <Td isNumeric>8,800</Td>
-                  <Td isNumeric>8,500</Td>
-                  <Td isNumeric>8,300</Td>
+                  <Td isNumeric>9,500</Td>
+                  <Td isNumeric>9,300</Td>
+                  <Td isNumeric>9,000</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>二食付</Td>
                   <Td isNumeric>5,000</Td>
-                  <Td isNumeric>4,800</Td>
-                  <Td isNumeric>4,500</Td>
+                  <Td isNumeric>5,000</Td>
+                  <Td isNumeric>5,000</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>食事無</Td>
                   <Td isNumeric>2,000</Td>
-                  <Td isNumeric>1,900</Td>
-                  <Td isNumeric>1,800</Td>
+                  <Td isNumeric>2,000</Td>
+                  <Td isNumeric>2,000</Td>
                 </Tr>
               </Tbody>
             </Table>
