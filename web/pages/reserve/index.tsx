@@ -212,49 +212,32 @@ const Reserve: React.FC = () => {
                       switch (tileOfDate) {
                         case checkInDate:
                           return CHECK_IN_DATE_CLASS_NAME
-                        case "2024/01/08":
+                        case "2025/01/01":
                           return "national__holiday" // 祝日
-                        // return FEW 残りわずか
-                        case "2025/01/31":
-                          return "few__holiday"
-                        case "2025/03/15":
-                          return "few__saturday"
-                        case "2024/01/07":
-                          return "few__sunday"
-                        // return FULL 満室
+                        // 残りわずか
+                        case "2025/12/30":
+                        case "2025/12/31":
+                          return "few" // 平日
+                        case "2025/12/28":
+                          return "few__saturday" // 土曜日
+                        case "2025/12/28":
+                          return "few__sunday" // 日曜日
+                        case "2026/01/01":
+                          return "few__holiday" // 祝日
+                        // 満室
                         case "2025/01/12":
-                          return "full__holiday"
+                          return "full__holiday" // 祝日
                         case "2025/02/22":
-                          return "full__saturday"
+                          return "full__saturday" // 土曜日
                         case "2025/02/23":
-                          return "full__sunday"
-                        case "2025/04/02":
-                        case "2025/04/03":
-                        case "2025/04/04":
-                        case "2025/04/07":
-                        case "2025/04/08":
-                        case "2025/04/09":
-                        case "2025/04/10":
-                        case "2025/04/11":
-                        case "2025/04/14":
-                        case "2025/04/15":
-                        case "2025/04/16":
-                        case "2025/04/17":
-                        case "2025/04/18":
-                        case "2025/04/21":
-                        case "2025/04/22":
-                        case "2025/04/23":
-                        case "2025/04/24":
+                          return "full__sunday" // 日曜日
+                        // 休業
                         case "2025/04/25":
-                          return "closed" // 休業
-                        case "2025/04/05":
-                        case "2025/04/12":
+                          return "closed"
                         case "2025/04/19":
-                          return "closed_saturday"
-                        case "2025/04/06":
-                        case "2025/04/13":
+                          return "closed_saturday" // 土曜日
                         case "2025/04/20":
-                          return "closed_sunday"
+                          return "closed_sunday" // 日曜日
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
