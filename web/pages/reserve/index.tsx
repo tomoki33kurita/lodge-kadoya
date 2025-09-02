@@ -212,7 +212,7 @@ const Reserve: React.FC = () => {
                       switch (tileOfDate) {
                         case checkInDate:
                           return CHECK_IN_DATE_CLASS_NAME
-                        case "2025/01/01":
+                        case "2026/01/12":
                           return "national__holiday" // 祝日
                         // 残りわずか
                         case "2025/12/30":
@@ -225,12 +225,15 @@ const Reserve: React.FC = () => {
                         case "2026/01/01":
                           return "few__holiday" // 祝日
                         // 満室
-                        case "2025/01/12":
-                          return "full__holiday" // 祝日
-                        case "2025/02/22":
+                        case "2025/12/29":
+                          return "full"
+                        case "2026/01/10":
+                        case "2026/03/21":
                           return "full__saturday" // 土曜日
                         case "2025/02/23":
                           return "full__sunday" // 日曜日
+                        case "2026/03/20":
+                          return "full__holiday" // 祝日
                         // 休業
                         case "2025/04/25":
                           return "closed"
