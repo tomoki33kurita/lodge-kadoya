@@ -333,6 +333,24 @@ const Reserve: React.FC = () => {
               </Box>
 
               <Box mb={5}>
+                <Box
+                  fontSize={"16px"}
+                  fontWeight={"bold"}
+                  mb={2}
+                  color={"teal.600"}
+                >
+                  アメニティのご案内
+                </Box>
+                <Box fontSize={"14px"} color={"gray.700"}>
+                  <Box>• 歯ブラシ（フロントにてお声かけください）</Box>
+                  <Box>• ドライヤー、シャンプー、ボディソープ完備</Box>
+                  <Box mt={1} fontSize={"13px"} color={"gray.600"}>
+                    ※申し訳ございませんが、タオルはお持参ください
+                  </Box>
+                </Box>
+              </Box>
+
+              <Box mb={5}>
                 <FormLabel mb={1} fontWeight={"bold"}>
                   備考欄
                 </FormLabel>
