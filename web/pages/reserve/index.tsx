@@ -205,6 +205,11 @@ const Reserve: React.FC = () => {
                 <Center>
                   <Calendar
                     calendarType={"US"}
+                    /**
+                     * JavaScriptのDateオブジェクトでは、月は0から始まるため、1月は0、2月は1となる。
+                     * そのため new Date(2026, 0, 1) で2026年1月1日を指定
+                     */
+                    activeStartDate={new Date(2026, 0, 1)}
                     formatDay={(_, date) => dayjs(date).format("D")}
                     tileClassName={(a) => {
                       const tileOfDate = dayjs(a.date).format("YYYY/MM/DD")
