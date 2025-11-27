@@ -24,6 +24,9 @@ const CHECK_IN_DATE_CLASS_NAME = "react-calendar__check_in_day"
 
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
+  const [activeStartDate, setActiveStartDate] = useState<Date>(
+    new Date(2026, 0, 1)
+  )
   const [isSending, setIsSending] = useState(false)
   const { handleSubmit, register, watch } = useForm()
   const axios = Axios.create({
@@ -209,7 +212,12 @@ const Reserve: React.FC = () => {
                      * JavaScriptのDateオブジェクトでは、月は0から始まるため、1月は0、2月は1となる。
                      * そのため new Date(2026, 0, 1) で2026年1月1日を指定
                      */
-                    activeStartDate={new Date(2026, 0, 1)}
+                    activeStartDate={activeStartDate}
+                    onActiveStartDateChange={({ activeStartDate }) => {
+                      if (activeStartDate) {
+                        setActiveStartDate(activeStartDate)
+                      }
+                    }}
                     formatDay={(_, date) => dayjs(date).format("D")}
                     tileClassName={(a) => {
                       const tileOfDate = dayjs(a.date).format("YYYY/MM/DD")
