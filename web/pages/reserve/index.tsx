@@ -25,7 +25,7 @@ const CHECK_IN_DATE_CLASS_NAME = "react-calendar__check_in_day"
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
   const [activeStartDate, setActiveStartDate] = useState<Date>(
-    new Date(2026, 0, 1)
+    new Date(2026, 0, 1),
   )
   const [isSending, setIsSending] = useState(false)
   const { handleSubmit, register, watch } = useForm()
@@ -268,11 +268,11 @@ const Reserve: React.FC = () => {
                           return "full__holiday" // 祝日
 
                         // 休業
-                        case "2025/04/25":
+                        case "2026/02/10":
                           return "closed" // 平日
                         case "2025/04/19":
                           return "closed_saturday" // 土曜日
-                        case "2025/04/20":
+                        case "2026/02/11": // 祝日だけど、class追加するの面倒だから休業日にしてしまう
                           return "closed_sunday" // 日曜日
                       }
                       switch (tileOfDay) {
