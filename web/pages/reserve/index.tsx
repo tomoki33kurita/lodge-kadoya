@@ -25,7 +25,7 @@ const CHECK_IN_DATE_CLASS_NAME = "react-calendar__check_in_day"
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
   const [activeStartDate, setActiveStartDate] = useState<Date>(
-    new Date(2026, 0, 1),
+    new Date(2026, 1, 1),
   )
   const [isSending, setIsSending] = useState(false)
   const { handleSubmit, register, watch } = useForm()
@@ -233,11 +233,13 @@ const Reserve: React.FC = () => {
                         case "2026/02/19":
                           return "few" // 平日
                         case "2026/01/10":
+                        case "2026/03/21":
                           return "few__saturday" // 土曜日
                         case "2026/01/11":
                         case "2023/02/22":
                           return "few__sunday" // 日曜日
                         case "2023/01/01":
+                        case "2026/03/20":
                           return "few__holiday" // 祝日
 
                         // 満室
@@ -256,7 +258,6 @@ const Reserve: React.FC = () => {
                         case "2026/02/28":
                         case "2026/03/07":
                         case "2026/03/14":
-                        case "2026/03/21":
                           return "full__saturday" // 土曜日
                         case "2025/12/28":
                         case "2026/01/18":
@@ -264,7 +265,6 @@ const Reserve: React.FC = () => {
                           return "full__sunday" // 日曜日
                         case "2026/01/01":
                         case "2026/01/02":
-                        case "2026/03/20":
                           return "full__holiday" // 祝日
 
                         // 休業
