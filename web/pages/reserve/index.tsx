@@ -268,11 +268,13 @@ const Reserve: React.FC = () => {
                         case "2026/12/30":
                         case "2026/12/31":
                         case "2027/02/12":
+                        case "2027/02/26":
                           return "full" // 平日
                         case "2027/01/09":
                         case "2027/01/30":
                         case "2027/02/06":
                         case "2027/02/13":
+                        case "2027/02/27":
                         case "2027/03/13":
                           return "full__saturday" // 土曜日
                         case "2027/01/10":

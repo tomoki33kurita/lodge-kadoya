@@ -56,14 +56,14 @@ const PriceSheet: React.FC = () => {
                   <Td>
                     年末年始
                     <br />
-                    (12.27~1.3)
+                    (12.26~1.3)
                   </Td>
                   <Td>
                     連休
                     <br />
-                    (1.10,11)
+                    (1.9,10)
                     <br />
-                    (2.21,22)
+                    (2.11,12,13)
                     <br />
                     (3.20,21)
                   </Td>
@@ -76,29 +76,29 @@ const PriceSheet: React.FC = () => {
                 <Tr>
                   <Td>大人</Td>
                   <Td>二食付</Td>
+                  <Td isNumeric>12,000</Td>
+                  <Td isNumeric>11,000</Td>
                   <Td isNumeric>10,500</Td>
-                  <Td isNumeric>10,300</Td>
-                  <Td isNumeric>10,000</Td>
                 </Tr>
                 <Tr>
                   <Td>小学生</Td>
                   <Td>二食付</Td>
+                  <Td isNumeric>10,000</Td>
+                  <Td isNumeric>10,000</Td>
                   <Td isNumeric>9,500</Td>
-                  <Td isNumeric>9,300</Td>
-                  <Td isNumeric>9,000</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>二食付</Td>
-                  <Td isNumeric>5,000</Td>
-                  <Td isNumeric>5,000</Td>
-                  <Td isNumeric>5,000</Td>
+                  <Td isNumeric>6,000</Td>
+                  <Td isNumeric>5,500</Td>
+                  <Td isNumeric>5,300</Td>
                 </Tr>
                 <Tr>
                   <Td>幼児</Td>
                   <Td>食事無</Td>
-                  <Td isNumeric>2,000</Td>
-                  <Td isNumeric>2,000</Td>
+                  <Td isNumeric>2,500</Td>
+                  <Td isNumeric>2,200</Td>
                   <Td isNumeric>2,000</Td>
                 </Tr>
               </Tbody>
@@ -119,6 +119,9 @@ const PriceSheet: React.FC = () => {
             </Box>
             <Box fontSize={14}>
               ＊素泊まりをご希望のお客様は、ご予約時にお申し付けください。
+            </Box>
+            <Box color={"red"} mt={2} fontSize={14}>
+              ※宿泊税をお一人様1泊から200円、別途いただきます。
             </Box>
           </Box>
         </Center>
