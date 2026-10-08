@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Box,
   Stack,
@@ -9,19 +9,16 @@ import {
   Link as A,
   Show,
   Hide,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import Link from "next/link";
-import { useRouter } from "next/dist/client/router";
+  type FlexProps,
+} from "@chakra-ui/react"
+import { HamburgerIcon } from "@chakra-ui/icons"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
-type Props = {
-  props?: any;
-};
-
-export const Header: React.VFC<Props> = (props) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleToggle = () => (isOpen ? onClose() : onOpen());
-  const router = useRouter();
+export const Header: React.FC<FlexProps> = (props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const handleToggle = () => (isOpen ? onClose() : onOpen())
+  const router = useRouter()
 
   return (
     <Flex
@@ -52,25 +49,25 @@ export const Header: React.VFC<Props> = (props) => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          <Link href={"/guidance"} passHref>
+          <Link href={"/guidance"} passHref legacyBehavior>
             <A fontWeight={"bold"}>ご案内</A>
           </Link>
-          <Link href={"/price"} passHref>
+          <Link href={"/price"} passHref legacyBehavior>
             <A fontWeight={"bold"}>料金表</A>
           </Link>
-          <Link href={"/cooking"} passHref>
+          <Link href={"/cooking"} passHref legacyBehavior>
             <A fontWeight={"bold"}>お料理</A>
           </Link>
-          <Link href={"/facility"} passHref>
+          <Link href={"/facility"} passHref legacyBehavior>
             <A fontWeight={"bold"}>館内施設</A>
           </Link>
-          <Link href={"/neighborhood"} passHref>
+          <Link href={"/neighborhood"} passHref legacyBehavior>
             <A fontWeight={"bold"}>周辺情報</A>
           </Link>
-          {/* <Link href={"/contact"} passHref>
+          {/* <Link href={"/contact"} passHref legacyBehavior>
           <A fontWeight={'bold'}>お問い合わせ</A>
         </Link> */}
-          <Link href={"/access"} passHref>
+          <Link href={"/access"} passHref legacyBehavior>
             <A fontWeight={"bold"}>アクセス</A>
           </Link>
         </Stack>
@@ -85,35 +82,35 @@ export const Header: React.VFC<Props> = (props) => {
           mt={{ base: 4, md: 0 }}
         >
           <Box>
-            <Link href={"/guidance"} passHref>
+            <Link href={"/guidance"} passHref legacyBehavior>
               <A fontWeight={"bold"}>ご案内</A>
             </Link>
           </Box>
           <Box>
-            <Link href={"/price"} passHref>
+            <Link href={"/price"} passHref legacyBehavior>
               <A fontWeight={"bold"}>料金表</A>
             </Link>
           </Box>
           <Box>
-            <Link href={"/cooking"} passHref>
+            <Link href={"/cooking"} passHref legacyBehavior>
               <A fontWeight={"bold"}>お料理</A>
             </Link>
           </Box>
           <Box>
-            <Link href={"/facility"} passHref>
+            <Link href={"/facility"} passHref legacyBehavior>
               <A fontWeight={"bold"}>館内施設</A>
             </Link>
           </Box>
           <Box>
-            <Link href={"/neighborhood"} passHref>
+            <Link href={"/neighborhood"} passHref legacyBehavior>
               <A fontWeight={"bold"}>周辺情報</A>
             </Link>
-            {/* <Link href={"/contact"} passHref>
+            {/* <Link href={"/contact"} passHref legacyBehavior>
           <A fontWeight={'bold'}>お問い合わせ</A>
         </Link> */}
           </Box>
           <Box>
-            <Link href={"/access"} passHref>
+            <Link href={"/access"} passHref legacyBehavior>
               <A fontWeight={"bold"}>アクセス</A>
             </Link>
           </Box>
@@ -126,12 +123,13 @@ export const Header: React.VFC<Props> = (props) => {
       >
         <Button
           variant="outline"
-          _hover={{ bg: "teal.700", borderColor: "teal.700" }}
+          color="white"
+          _hover={{ bg: "teal.700", borderColor: "teal.700", color: "white" }}
           onClick={() => router.push("/reserve")}
         >
           予約する
         </Button>
       </Box>
     </Flex>
-  );
-};
+  )
+}

@@ -22,20 +22,35 @@ const SUNDAY = 0
 const SATURDAY = 6
 const CHECK_IN_DATE_CLASS_NAME = "react-calendar__check_in_day"
 
+type ReservationForm = {
+  name: string
+  kana: string
+  address: string
+  tel: string
+  email: string
+  checkInDate: string
+  numberOfDays: string
+  adult: string
+  child: string
+  infantWithMeals: string
+  infant: string
+  remarks: string
+}
+
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
   const [activeStartDate, setActiveStartDate] = useState<Date>(
     new Date(2026, 1, 1),
   )
   const [isSending, setIsSending] = useState(false)
-  const { handleSubmit, register, watch } = useForm()
+  const { handleSubmit, register, watch } = useForm<ReservationForm>()
   const axios = Axios.create({
     baseURL: process.env.NEXT_PUBLIC_AXIOS_BASE_URL,
   })
   const inputOfEmail = watch("email")
   const router = useRouter()
 
-  const handleForm = async (values: any) => {
+  const handleForm = async (values: ReservationForm) => {
     try {
       setIsSending(true)
       const {
@@ -207,7 +222,7 @@ const Reserve: React.FC = () => {
                 </Center>
                 <Center>
                   <Calendar
-                    calendarType={"US"}
+                    calendarType="gregory"
                     /**
                      * JavaScriptのDateオブジェクトでは、月は0から始まるため、1月は0、2月は1となる。
                      * そのため new Date(2026, 0, 1) で2026年1月1日を指定
@@ -287,9 +302,10 @@ const Reserve: React.FC = () => {
                       }
                       return ""
                     }}
-                    onChange={(e: Date) => {
-                      //
-                      setCheckInDate(dayjs(e).format("YYYY/MM/DD"))
+                    onChange={(value) => {
+                      if (value instanceof Date) {
+                        setCheckInDate(dayjs(value).format("YYYY/MM/DD"))
+                      }
                     }}
                   />
                 </Center>
@@ -297,7 +313,7 @@ const Reserve: React.FC = () => {
                   defaultValue={checkInDate}
                   id={"checkInDate"}
                   {...register("checkInDate")}
-                  onChange={(e: any) => {
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                     setCheckInDate(e.target.value)
                   }}
                 />

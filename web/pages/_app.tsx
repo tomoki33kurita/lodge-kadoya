@@ -8,7 +8,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <Header />
-      {/* @ts-ignore */}
       <Component {...pageProps} />
     </ChakraProvider>
   );

@@ -28,7 +28,7 @@ export const LinkButton: React.FC<Props> = ({
   variant,
 }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <A style={{ textDecoration: "none" }}>
         <Button
           size={size}

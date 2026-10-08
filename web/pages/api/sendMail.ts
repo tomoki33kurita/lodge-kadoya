@@ -1,10 +1,25 @@
-import type { NextApiRequest } from "next"
+import type { NextApiRequest, NextApiResponse } from "next"
 import nodemailer from "nodemailer"
 
+type Reservation = {
+  name: string
+  kana: string
+  address: string
+  tel: string
+  email: string
+  checkInDate: string
+  numberOfDays: string
+  adult: string
+  child: string
+  infantWithMeals: string
+  infant: string
+  remarks: string
+}
+
 // eslint-disable-next-line
-export default async (req: NextApiRequest, res: any) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const data = req.body
+    const data = req.body as Reservation
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -34,11 +49,11 @@ export default async (req: NextApiRequest, res: any) => {
     return res.status(200).end()
   } catch (err) {
     console.log(err)
-    res.status(500).send()
+    res.status(500).end()
   }
 }
 
-const toCustomerTextGenerator = (data: any) => {
+const toCustomerTextGenerator = (data: Reservation) => {
   const {
     name,
     kana,
@@ -82,7 +97,7 @@ const toCustomerTextGenerator = (data: any) => {
   </html>`
 }
 
-const toKadoyaTextGenerator = (data: any) => {
+const toKadoyaTextGenerator = (data: Reservation) => {
   const {
     name,
     kana,

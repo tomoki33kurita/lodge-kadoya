@@ -1,10 +1,10 @@
-import { ReactChildren } from "react";
+import type { FC, ReactNode } from "react";
 
 type Props = {
-  children: ReactChildren;
+  children: ReactNode;
 };
 
-export const Layout: React.FC<Props> = ({ children }) => {
+export const Layout: FC<Props> = ({ children }) => {
   return (
     <>
       {children}

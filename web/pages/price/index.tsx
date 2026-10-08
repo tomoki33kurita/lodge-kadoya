@@ -6,8 +6,6 @@ import {
   Tr,
   Td,
   TableContainer,
-  Button,
-  Link as A,
 } from "@chakra-ui/react"
 import Head from "next/head"
 import { LinkButton } from "../../components/LinkButton"
