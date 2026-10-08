@@ -40,7 +40,7 @@ type ReservationForm = {
 const Reserve: React.FC = () => {
   const [checkInDate, setCheckInDate] = useState<undefined | string>(undefined)
   const [activeStartDate, setActiveStartDate] = useState<Date>(
-    new Date(2026, 1, 1),
+    new Date(2027, 0, 1),
   )
   const [isSending, setIsSending] = useState(false)
   const { handleSubmit, register, watch } = useForm<ReservationForm>()
@@ -222,10 +222,11 @@ const Reserve: React.FC = () => {
                 </Center>
                 <Center>
                   <Calendar
+                    locale="ja-JP"
                     calendarType="gregory"
                     /**
-                     * JavaScriptのDateオブジェクトでは、月は0から始まるため、1月は0、2月は1となる。
-                     * そのため new Date(2026, 0, 1) で2026年1月1日を指定
+                     * JavaScriptのDateオブジェクトでは、月は0から始まるため、12月は11となる。
+                     * そのため new Date(2026, 11, 1) で2026年12月1日を指定
                      */
                     activeStartDate={activeStartDate}
                     onActiveStartDateChange={({ activeStartDate }) => {
@@ -240,55 +241,42 @@ const Reserve: React.FC = () => {
                       switch (tileOfDate) {
                         case checkInDate:
                           return CHECK_IN_DATE_CLASS_NAME
-                        case "2026/01/12":
-                        case "2026/02/23":
+                        case "2026/10/12": // スポーツの日
+                        case "2026/11/03": // 文化の日
+                        case "2026/11/23": // 勤労感謝の日
+                        case "2027/01/11": // 成人の日
+                        case "2027/02/23": // 天皇誕生日
+                        case "2027/03/21": // 春分の日
+                        case "2027/03/22": // 振替休日
                           return "national__holiday" // ただの祝日
 
                         // 残りわずか
-                        case "2026/02/19":
+                        case "2026/12/28":
+                        case "2026/12/29":
                           return "few" // 平日
-                        case "2026/01/10":
-                        case "2026/03/21":
+                        case "2027/01/02":
+                        case "2027/01/23":
+                        case "2027/03/06":
                           return "few__saturday" // 土曜日
-                        case "2026/01/11":
-                        case "2023/02/22":
+                        case "2026/12/27":
                           return "few__sunday" // 日曜日
-                        case "2023/01/01":
-                        case "2026/03/20":
+                        case "2027/01/01": // 元日
+                        case "2027/02/11": // 建国記念の日
                           return "few__holiday" // 祝日
 
                         // 満室
-                        case "2025/12/29":
-                        case "2025/12/30":
-                        case "2025/12/31":
-                          return "full"
-                        case "2025/12/27":
-                        case "2026/01/03":
-                        case "2026/01/17":
-                        case "2026/01/24":
-                        case "2026/01/31":
-                        case "2026/02/07":
-                        case "2026/02/14":
-                        case "2026/02/21":
-                        case "2026/02/28":
-                        case "2026/03/07":
-                        case "2026/03/14":
+                        case "2026/12/30":
+                        case "2026/12/31":
+                        case "2027/02/12":
+                          return "full" // 平日
+                        case "2027/01/09":
+                        case "2027/01/30":
+                        case "2027/02/06":
+                        case "2027/02/13":
+                        case "2027/03/13":
                           return "full__saturday" // 土曜日
-                        case "2025/12/28":
-                        case "2026/01/18":
-                        case "2026/02/22":
+                        case "2027/01/10":
                           return "full__sunday" // 日曜日
-                        case "2026/01/01":
-                        case "2026/01/02":
-                          return "full__holiday" // 祝日
-
-                        // 休業
-                        case "2026/02/10":
-                          return "closed" // 平日
-                        case "2025/04/19":
-                          return "closed_saturday" // 土曜日
-                        case "2026/02/11": // 祝日だけど、class追加するの面倒だから休業日にしてしまう
-                          return "closed_sunday" // 日曜日
                       }
                       switch (tileOfDay) {
                         case SATURDAY:
